@@ -1,0 +1,23 @@
+{
+    "manifest_version": 2,
+    "name": "Job Extension",
+    "description": "This a chrome extension that shows which jobs on Indeed (more to be add later) are E-verified and have sponsored in the past",
+    "permissions": ["activeTab", "storage", "declarativeContent", "http://localhost/*"],
+    "version": "0.1",
+    "background":{
+        "scripts": ["background.js"],
+        "persistent": false
+    },
+    "content_scripts": [
+        {
+            "matches": ["https://www.indeed.com/jobs?*"],
+            "js": ["jquery-3.5.1.min.js", "content.js"],
+            "run_at": "document_end"
+        }
+    ],
+    "page_action": {
+        "default_icon":  "boolean-search.png",
+        "default_popup": "popup.html"
+    }
+    
+}
